@@ -3,6 +3,7 @@ package org.iesvdm.jsp_servlet_jdbc.servlet;
 import jakarta.servlet.http.HttpServletRequest;
 import org.iesvdm.jsp_servlet_jdbc.model.Socio;
 
+import javax.swing.text.html.Option;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -52,5 +53,25 @@ public class UtilServlet {
         //FIN CÓDIGO DE VALIDACIÓN
         return Optional.empty();
 
+    }
+
+    public static Optional<Integer> validaBorrar(HttpServletRequest request) {
+        boolean valida = true;
+
+        // Recepcion del parametro enviado por el formulario de borrar
+        String codigoStr = request.getParameter("codigo");
+
+        // Valida Parametro
+        Integer codigo = null;
+
+        try {
+            // Recepcion del parametro enviado por el formulario de borrado
+            codigo = Integer.parseInt(codigoStr);
+            return Optional.of(codigo);
+        } catch (NumberFormatException ex) {
+            ex.printStackTrace();
+        }
+
+        return Optional.empty();
     }
 }
