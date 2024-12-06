@@ -136,9 +136,8 @@ public class SocioDAOImpl extends AbstractDAOImpl implements SocioDAO {
             ps.setString(idx++, socio.getNombre());
             ps.setInt(idx++, socio.getEstatura());
             ps.setInt(idx++, socio.getEdad());
-            ps.setString(idx, socio.getLocalidad());
-
-            ps.setInt(idx++, socio.getSocioId());
+            ps.setString(idx++, socio.getLocalidad());
+            ps.setInt(idx, socio.getSocioId());
 
             int rows = ps.executeUpdate();
 
@@ -171,7 +170,6 @@ public class SocioDAOImpl extends AbstractDAOImpl implements SocioDAO {
 
             if (rows == 0)
                 System.out.println("Delete de socio con 0 registros eliminados.");
-
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         } finally {

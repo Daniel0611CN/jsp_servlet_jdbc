@@ -17,11 +17,9 @@
     	valida = false;
     }
     //FIN CÓDIGO DE VALIDACIÓN
-    
-    
+
     if (valida) {
 
-      
 	Connection conn = null;
 	PreparedStatement ps = null;
 // 	ResultSet rs = null;
@@ -66,8 +64,7 @@
 	  
     }
     %>
-    
     <!-- REDIRECCIÓN POR JavaScript EN EL CLIENTE  -->
-    <script>document.location = "pideNumeroSocio.jsp"</script> 
+    <script>document.location = "pideNumeroSocio.jsp"</script>
   </body>
 </html>

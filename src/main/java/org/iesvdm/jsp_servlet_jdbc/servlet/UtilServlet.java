@@ -74,4 +74,44 @@ public class UtilServlet {
 
         return Optional.empty();
     }
+
+    public static Optional<Socio> validaEditar(HttpServletRequest request) {
+        boolean valida = true;
+        String codigoStr = request.getParameter("codigo");
+        Integer codigo = null;
+
+        String nombre = null;
+        int estatura = -1;
+        int edad = -1;
+        String localidad = null;
+
+
+        try {
+            // Se supone que si el usuario se ha creado desde la web, no debería dar error, aunque validamos ya que el usuario se puede introducir
+            // desde la base de datos;
+
+            Objects.requireNonNull(request.getParameter("nombre"));
+
+            if (request.getParameter("nombre").isBlank()) throw new RuntimeException("Parámetro vacío o todo espacios blancos.");
+            nombre = request.getParameter("nombre");
+
+            estatura = Integer.parseInt(request.getParameter("estatura"));
+            edad = Integer.parseInt(request.getParameter("edad"));
+
+            Objects.requireNonNull(request.getParameter("localidad"));
+
+            if (request.getParameter("localidad").isBlank()) throw new RuntimeException("Parámetro vacío o todo espacios blancos.");
+            localidad = request.getParameter("localidad");
+
+            codigo = Integer.parseInt(codigoStr);
+
+            if (nombre != null && estatura != -1 && edad != -1 && localidad != null) {
+                return Optional.of(new Socio(codigo, nombre, estatura, edad, localidad));
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        return Optional.empty();
+    }
 }

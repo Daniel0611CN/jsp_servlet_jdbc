@@ -37,7 +37,7 @@
 
 <div class="container bg-light">
     <%
-    //                                                          v----RECOGER listado DE SOCIO DEL request
+    // RECOGER listado DE SOCIO DEL request
     List<Socio> listado = (List<Socio>) request.getAttribute("listado");
     // FOR-EACH SOBRE LA COLECCIÓN DE listado DE SOCIO
     for (Socio socio: listado) {
@@ -65,9 +65,9 @@
             </form>
         </div>
     </div>
-        <%
-      //v--- FIN DEL BUCLE FOR CON HTML INCRUSTADO
-    } // for
+    <%
+      // FIN DEL BUCLE FOR CON HTML INCRUSTADO
+      } // for
     %>
 </div>
 
